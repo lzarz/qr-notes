@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use | QR Notes</title>
+    <link href="{% static 'pixel-cartoon/pixel-cartoon.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4081;
+            --accent: #ffd54f;
+            --bg: linear-gradient(to right, #fceabb, #f8b500);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Fredoka', sans-serif;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav a {
+            margin-left: 1.5rem;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .howto-content {
+            background: #fff;
+            padding: 3rem 2rem;
+            border-radius: 2rem;
+            max-width: 900px;
+            width: 100%;
+            border: 5px dashed var(--accent);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px #ffbaba;
+        }
+
+        h2 {
+            color: #e91e63;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        ol {
+            padding-left: 1.5rem;
+            line-height: 1.8;
+        }
+
+        ol li {
+            margin-bottom: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .howto-content {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            p, ol li {
+                font-size: 1rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="{% url 'landing_page' %}" class="logo-link">QR Notes</a>
+        <nav>
+            <a href="{% url 'how_to_use' %}">How to Use?</a>
+            <a href="{% url 'about' %}">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="howto-content">
+            <h1>📌 How to Use QR Notes</h1>
+            <p>QR Notes is a fun and easy way to save short notes and instantly turn them into QR codes that can be scanned anywhere. Whether you're sending a lunchbox message, a hidden gift clue, or study tips to your friend — QR Notes is here to help!</p>
+
+            <h2>📝 Step-by-Step Guide</h2>
+            <ol>
+                <li><strong>Go to Create Note</strong>: From the homepage, click "✍️ Create a Note".</li>
+                <li><strong>Write Your Note</strong>: Type your message. It can be a reminder, a quote, a clue — anything you like!</li>
+                <li><strong>Click Submit</strong>: Once done, click the submit button and voilà!</li>
+                <li><strong>Scan the QR</strong>: Your note is now encoded into a cute little QR code. You can scan it using any camera or QR scanner app.</li>
+                <li><strong>Share with Others</strong>: Print it, stick it, or send it to a friend. Notes are safe, quick, and delightful!</li>
+            </ol>
+
+            <h2>💡 Tip</h2>
+            <p>You can use QR Notes for surprise love notes, scavenger hunts, classroom tips, event instructions, or even as a simple way to transfer small bits of text between devices.</p>
+
+            <h2>❤️ Safe & Temporary</h2>
+            <p>All notes are stored securely and meant for short-term sharing. QR Notes does not store personal info or require accounts. It’s just your note and the magic of QR!</p>
+        </div>
+    </main>
+</body>
+</html>

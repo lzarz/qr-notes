@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Created!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4081;
+            --accent: #ffca28;
+            --bg-gradient: linear-gradient(to right, #fceabb, #f8b500);
+            --text-dark: #333;
+            --success: #4caf50;
+            --success-dark: #388e3c;
+            --shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: var(--bg-gradient);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .result-box {
+            background: #fff;
+            border-radius: 2rem;
+            padding: 2.5rem 2rem;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            border: 5px dotted var(--accent);
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: #4caf50;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px #c8e6c9;
+        }
+
+        .note-info {
+            text-align: left;
+            background: #fffdf5;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 2px solid #ffe082;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+        }
+
+        .note-info p {
+            font-size: 1.1rem;
+            margin: 0 0 1rem;
+            color: var(--text-dark);
+        }
+
+        .note-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        img.qr {
+            display: block;
+            max-width: 250px;
+            width: 100%;
+            margin: 0 auto;
+            border: 4px dashed var(--primary);
+            padding: 1rem;
+            border-radius: 1rem;
+            background: #fffaf0;
+            box-shadow: 0 8px 16px rgba(255, 105, 180, 0.2);
+        }
+
+        .btn-home {
+            display: inline-block;
+            margin: 2rem auto 0;
+            padding: 0.6rem 1.4rem;
+            background: var(--success);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .btn-home:hover {
+            background: var(--success-dark);
+        }
+
+        @media (max-width: 500px) {
+            .result-box {
+                padding: 2rem 1.5rem;
+            }
+
+            .note-info {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h1>🎉 Note Created!</h1>
+        <div class="note-info">
+            <p><strong>Title:</strong> {{ note.title }}</p>
+            <p><strong>Content:</strong> {{ note.content }}</p>
+        </div>
+
+        <img class="qr" src="data:image/png;base64,{{ qr_image|b64encode }}" alt="QR Code">
+
+        <div style="text-align:center;">
+            <a href="{% url 'create_note' %}" class="btn-home">➕ Create Another Note</a>
+        </div>	
+    </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Note</title>
+    <link href="{% static 'pixel-cartoon/pixel-cartoon.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4081;
+            --accent: #ffd54f;
+            --bg: linear-gradient(to right, #fceabb, #f8b500);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: var(--bg);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-wrapper {
+            background: #fff;
+            padding: 2.5rem 2rem;
+            border-radius: 2rem;
+            max-width: 500px;
+            width: 100%;
+            border: 5px dashed var(--accent);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .form-wrapper:hover {
+            transform: scale(1.015);
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 1.8rem;
+            text-shadow: 1px 1px #ffbaba;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        form p {
+            margin: 0;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: #444;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            border: 3px solid var(--accent);
+            border-radius: 1rem;
+            background: #fffef6;
+            transition: all 0.25s ease;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: var(--primary);
+            background: #fff3e0;
+            outline: none;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            padding: 0.9rem 1.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 2rem;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(255, 64, 129, 0.3);
+            transition: background 0.25s ease;
+            align-self: center;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background: #e91e63;
+        }
+
+        @media (max-width: 480px) {
+            .form-wrapper {
+                padding: 2rem 1.2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            input[type="text"],
+            textarea {
+                font-size: 1rem;
+            }
+
+            button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-wrapper">
+        <h1>📝 Create Note</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">🎉 Generate QR</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Ignore __pycache__ directories
+__pycache__/
+
+# Ignore prod.py settings file
+/config/settings/prod.py

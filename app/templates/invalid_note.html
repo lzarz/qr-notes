@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ note.title }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4081;
+            --accent: #ffd54f;
+            --error-bg: #fceabb;
+            --error-text: #d32f2f;
+            --success: #4caf50;
+            --success-dark: #388e3c;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: var(--error-bg);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .error-container {
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            width: 100%;
+            max-width: 600px;
+            border: 6px solid var(--error-text);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 0 1rem; /* Ensures some space on the sides */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--error-text);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px #ffe5ec;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            box-shadow: 0 6px 12px rgba(255, 64, 129, 0.3);
+            transition: background 0.3s;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-home:hover {
+            background: #e91e63;
+        }
+
+        @media (max-width: 768px) {
+            .error-container {
+                padding: 2.5rem 1.5rem; /* Adjust padding for tablets */
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            .btn-home {
+                padding: 0.8rem 1.6rem; /* Adjust button padding for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-container {
+                padding: 2rem 1rem; /* More padding adjustment for mobile */
+                max-width: 95%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn-home {
+                padding: 0.7rem 1.4rem; /* Adjust button padding even more */
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>Oops! Something Went Wrong</h1>
+        <p>It seems like your session has expired or the link you followed is no longer valid. Don’t worry, it’s easy to fix!</p>
+        <p>You can create a new note and continue your work seamlessly.</p>
+        <a href="{% url 'create_note' %}" class="btn-home">Create a New Note</a>
+    </div>
+</body>
+</html>
