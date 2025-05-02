@@ -17,7 +17,7 @@ Ensure you have the following installed:
 - Python (3.6 or higher)
 - Django (3.0 or higher)
 - Virtual environment (optional but recommended)
-- PostgreSQL or SQLite (depending on your environment)
+- SQLite (depending on your database)
 
 ---
 
@@ -54,10 +54,6 @@ python -m venv venv
 
 ### 3. Install Dependencies
 
-```bash
-pip install -r requirements.txt
-```
-
 ### 4. Set up the Database
 
 If you are using SQLite (default), you don’t need to do anything. If you're using PostgreSQL, make sure you have the correct database configuration in your `.env` file.
@@ -78,7 +74,7 @@ python manage.py createsuperuser
 
 ### 1. Environment Variables
 
-Create a `.env` file in the root directory of the project and add your settings:
+You can configure your settings according to your environment:
 
 ```ini
 SECRET_KEY=your_secret_key
@@ -86,12 +82,6 @@ DEBUG=True
 ALLOWED_HOSTS=127.0.0.1, localhost
 DATABASE_URL=sqlite:///db.sqlite3  # Or your database URL if using PostgreSQL
 QR_BASE_URL=http://'0.0.0.0:8000  # Change this to your actual server URL
-```
-
-You can configure your database URL according to your environment. For PostgreSQL:
-
-```ini
-DATABASE_URL=postgres://username:password@localhost:5432/dbname
 ```
 
 ### 2. Install Dependencies
@@ -105,11 +95,9 @@ pip install -r requirements.txt
 Required dependencies:
 
 * `django`: Web framework
-* `djangorestframework`: For creating APIs
 * `PyJWT`: For handling JSON Web Tokens
 * `qrcode`: For generating QR codes
 * `Pillow`: For handling image generation
-* `python-decouple`: To load settings from environment variables
 
 ---
 
@@ -120,7 +108,7 @@ Required dependencies:
 To start the Django development server:
 
 ```bash
-python manage.py runserver 0.0.0.0:8000
+DJANGO_SETTINGS_MODULE=config.settings.dev python manage.py runserver 0.0.0.0:8000
 ```
 
 You can now access your application by navigating to [http://localhost:8000](http://localhost:8000) or [http://'0.0.0.0:8000](http://'0.0.0.0:8000) (or whatever IP your machine is using on your local network).
@@ -182,7 +170,7 @@ You can then share the QR code with others. When someone scans it, they will be 
 ### Running the Development Server
 
 ```bash
-python manage.py runserver 0.0.0.0:8000
+DJANGO_SETTINGS_MODULE=config.settings.dev python manage.py runserver 0.0.0.0:8000
 ```
 
 ### Running Tests
@@ -206,21 +194,30 @@ qr-notes/
 │   ├── dev.py              # Development settings
 │   └── prod.py             # Production settings
 │
-├── qr_notes/               # Application folder
+├── app/               # Application folder
 │   ├── __init__.py
 │   ├── models.py           # Models for notes
 │   ├── views.py            # Views to handle note access and creation
 │   ├── urls.py             # URL routing for the app
 │   └── serializers.py      # Serializers for converting note data
 │
-├── .env                    # Environment variables
 ├── manage.py               # Django management file
-├── requirements.txt        # List of dependencies
 ├── README.md               # Project README file
 └── db.sqlite3              # SQLite database (if using SQLite)
 ```
 
 ---
+
+## Screenshots
+
+## Sample
+![Alt text](/screenshots/landing_page.jpg)
+![Alt text](/screenshots/create_note.jpg)
+![Alt text](/screenshots/note_created.jpg)
+![Alt text](/screenshots/view_note.jpg)
+![Alt text](/screenshots/invalid_note.jpg)
+![Alt text](/screenshots/how_to_use.jpg)
+![Alt text](/screenshots/about.jpg)
 
 ## Deployment
 

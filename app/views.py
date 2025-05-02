@@ -20,7 +20,7 @@ def create_note(request):
         if form.is_valid():
             note = form.save()
             token = generate_jwt(note.id)
-            qr = qrcode.make(f"{settings.QR_BASE_URL}/notes/view/{token}/")
+            qr = qrcode.make(f"{settings.QR_BASE_URL}/view/{token}/")
             buffer = BytesIO()
             qr.save(buffer, format='PNG')
             img_data = buffer.getvalue()
