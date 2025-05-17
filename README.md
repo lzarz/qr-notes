@@ -19,6 +19,16 @@ Ensure you have the following installed:
 - Virtual environment (optional but recommended)
 - SQLite (depending on your database)
 
+Due this project requires UI component which is not included in repository cause the file size.
+You can download the UI package directly from the following Google Drive link:
+
+https://drive.google.com/file/d/1Yw6jpcNAVGMpua4cMzJwUPoGRMtlNKXu/view?usp=drive_link
+
+### How to Add UI
+
+1. Click the link above and download the UI zip file.
+2. Extract the zip contents into the qr-notes/app/templates directory of this project.
+
 ---
 
 ## Installation
